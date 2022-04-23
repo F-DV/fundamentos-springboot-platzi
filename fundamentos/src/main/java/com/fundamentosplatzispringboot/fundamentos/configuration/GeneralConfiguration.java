@@ -1,11 +1,14 @@
 package com.fundamentosplatzispringboot.fundamentos.configuration;
 
+import com.fundamentosplatzispringboot.fundamentos.Pojo.UserPojo;
 import com.fundamentosplatzispringboot.fundamentos.bean.MyBeanWithProperties;
 import com.fundamentosplatzispringboot.fundamentos.bean.MyBeanWithPropertiesImplement;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+@EnableConfigurationProperties(UserPojo.class) //Referenciamos la clase UserPojo, ya puede ser inyectada
 @Configuration
 public class GeneralConfiguration {
 

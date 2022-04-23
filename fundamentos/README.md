@@ -76,3 +76,12 @@ e inyectar (MyBeanWithDependency) en FuntamentosApplication y asi hacer uso de u
 - Inyectamos la dependencia dentro de FundamentosApplication
 
 
+# Uso de properties con ejemplo de generacion de pojo
+- Creamos package Pojo y clase UserPojo, Creamos implementacion de un pojo sencillo
+- utilizamos la anotacion @@ConstructorBinding  para construir el pojo
+- Utilizamos la anotacion @ConfigurationProperties(prefix = "user") con un prefijo que se referenciara en application.properties
+- Le damos valores al pojo desde el archivo application.properties
+- utilizamos la anotacion @EnableConfigurationProperties(UserPojo.class) en la clase de GeneralConfiguration,
+para darle una configuracion inicial y poderlo inyectar.
+- Inyectamos en Fundamentos.properties
+-> Aprendimos a configurar un pojo y como darle valores desde properties
