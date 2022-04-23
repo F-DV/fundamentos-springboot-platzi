@@ -23,3 +23,10 @@ Transfiere el control del flijo del programa a un contendedor o framework.
 inicializan con el contenedeor de spring. Implementacion del principiodeinversion de control.
 - Codigo mas limpio
 - Codigo mas modularizado.
+
+# Anotaciones principales de SpringBoot:
+- @Component : Clases muy Genericas o abstracto
+- @Controller: Representa lo que biene de la interface Grafica, respuestas http, etc.
+- @Service: Logica de negocio adicional o validaciones adicionales.
+- @Repository: Persistencia de datos, obtención de datos.
+- 
