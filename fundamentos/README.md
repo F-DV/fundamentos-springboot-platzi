@@ -30,6 +30,11 @@ inicializan con el contenedeor de spring. Implementacion del principiodeinversio
 - @Service: Logica de negocio adicional o validaciones adicionales.
 - @Repository: Persistencia de datos, obtención de datos.
 
+# ¿Que son los logs?
+- Es una herramienta o utilidad que nos permite debuggerar la informacion de nuestro codigo
+- Podemos saber por donde esta pasando nuestro codigo
+- Ejemplo de logs: ERROR,INFO,DEBUG.
+
 --------
 
 ## Commits
@@ -85,3 +90,11 @@ e inyectar (MyBeanWithDependency) en FuntamentosApplication y asi hacer uso de u
 para darle una configuracion inicial y poderlo inyectar.
 - Inyectamos en Fundamentos.properties
 -> Aprendimos a configurar un pojo y como darle valores desde properties
+
+# Uso de Logs
+- Configuramos el tipo de log que nos muestra la aplicacion desde properties
+- Utilizamos la libreria Apache e instanciamos en FundamentosApplication un Log
+- Este log nos sirve para referenciar cuales con los errors y poder debugger el codigo
+- Podemos utilizarlo en los try/catch
+- Info es parecido a un system.out.print, para saber ha que metodos ingresa el codigo.
+- Hacemos una implementación de Log en la clase MyBeanWithDependencyImplement.

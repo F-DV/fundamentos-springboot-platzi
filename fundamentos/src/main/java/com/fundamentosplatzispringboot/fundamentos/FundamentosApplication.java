@@ -5,6 +5,8 @@ import com.fundamentosplatzispringboot.fundamentos.bean.MyBean;
 import com.fundamentosplatzispringboot.fundamentos.bean.MyBeanWithDependency;
 import com.fundamentosplatzispringboot.fundamentos.bean.MyBeanWithProperties;
 import com.fundamentosplatzispringboot.fundamentos.component.ComponentDependency;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
@@ -14,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class FundamentosApplication implements CommandLineRunner {
 
+	private final Log LOGGER = LogFactory.getLog(FundamentosApplication.class );
 	private ComponentDependency componentDependency;
 	private MyBean myBean;
 	private MyBeanWithDependency myBeanWithDependency;
@@ -44,5 +47,13 @@ public class FundamentosApplication implements CommandLineRunner {
 		myBeanWithDependency.printWithDependency();
 		System.out.println(myBeanWithProperties.function());
 		System.out.println(userPojo.getEmail() + "-" + userPojo.getPassword()+"-"+userPojo.getAge());
+
+
+		//ejemplo de usos de Log
+		try{
+			//Implementacion
+		}catch (Exception e){
+			LOGGER.error("Esto es un error",e);
+		}
 	}
 }
