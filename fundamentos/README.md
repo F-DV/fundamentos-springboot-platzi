@@ -33,8 +33,28 @@ inicializan con el contenedeor de spring. Implementacion del principiodeinversio
 ## Commits
 
 # Inyeccion de dependencia Component
-- Creacion de Interface ComponentDependency
-- Creacion de clase ComponentImplement
-- Creacion de clase ComponentImplement2
+- Creación de Interface ComponentDependency
+- Creación de clase ComponentImplement
+- Creación de clase ComponentImplement2
 - En la clase principal FundamentosApplication inyectamos la dependencia y en el constructor indicamos con qualifer
-cual implementacion utilizara, Tambien podmos usar en el componente la anotacion @primary para indicar cual se utilizará
+cual implementacion utilizará, Tambien podemos usar en el componente la anotacion @primary para indicar cual se utilizará
+
+# Creacion de dependencia Propio
+-> PARTE 1
+- Creación de 2 Package: bean, configuration
+- Creación de Interface MyBean
+- Creación de Clase MyBeanImplement
+- Creación de Clase MyBeanImplement2
+- Creación de Clase MyConfigurationBean
+- En este caso indicamos cual implementacion se va a utilizar desde la clase de configuración
+
+-> PARTE 2
+- Creación de interface(dependencia) MyOperation
+- Creación de Clase(Implementacion) MyOperationimplement
+- Configuración de la dependencia(MyOperation) en MyConfiguration
+- Creación de dependencia MyBeanWithDependency
+- Creación de Implementacion MyBeanWithdepenencyImplement
+- Configuración de la dependencia(MyBeanWithDependency) en MyConfiguration
+- La idea en este caso es inyectar la dependencia "MyOperation" dentro de la implementación (MyBeanWithdepenencyImplement),
+e inyectar (MyBeanWithDependency) en FuntamentosApplication y asi hacer uso de una dependencia que tiene otra.
+
