@@ -30,8 +30,9 @@ inicializan con el contenedeor de spring. Implementacion del principiodeinversio
 - @Service: Logica de negocio adicional o validaciones adicionales.
 - @Repository: Persistencia de datos, obtención de datos.
 
-## Commits
+--------
 
+## Commits
 # Inyeccion de dependencia Component
 - Creación de Interface ComponentDependency
 - Creación de clase ComponentImplement
@@ -39,7 +40,7 @@ inicializan con el contenedeor de spring. Implementacion del principiodeinversio
 - En la clase principal FundamentosApplication inyectamos la dependencia y en el constructor indicamos con qualifer
 cual implementacion utilizará, Tambien podemos usar en el componente la anotacion @primary para indicar cual se utilizará
 
-# Creacion de dependencia Propio
+# Creacion de dependencia Propia
 -> PARTE 1
 - Creación de 2 Package: bean, configuration
 - Creación de Interface MyBean
@@ -58,3 +59,11 @@ cual implementacion utilizará, Tambien podemos usar en el componente la anotaci
 - La idea en este caso es inyectar la dependencia "MyOperation" dentro de la implementación (MyBeanWithdepenencyImplement),
 e inyectar (MyBeanWithDependency) en FuntamentosApplication y asi hacer uso de una dependencia que tiene otra.
 
+# Cambio de Puerto y Path
+- Se inyecta la dependencia en pom.xml starter.web
+- Configuramos el server en el archivo application.properties, cambiando el puerto y el path
+- Se crea el package y la clase TestController, y creamos un petición basica y respondemos con un mensaje
+- le damos run e ingresamos al navegador con el puerto y el path configurado y veremos la respuesta.
+
+-> Inyectamos una dependencia llamada devtools en pom.xml
+- Esta herramienta sirve para cuando hagamos un cambio y guardemos se vea reflejado inmediatamente en el navegador
