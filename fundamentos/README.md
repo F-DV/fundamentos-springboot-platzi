@@ -64,6 +64,15 @@ e inyectar (MyBeanWithDependency) en FuntamentosApplication y asi hacer uso de u
 - Configuramos el server en el archivo application.properties, cambiando el puerto y el path
 - Se crea el package y la clase TestController, y creamos un petición basica y respondemos con un mensaje
 - le damos run e ingresamos al navegador con el puerto y el path configurado y veremos la respuesta.
-
 -> Inyectamos una dependencia llamada devtools en pom.xml
 - Esta herramienta sirve para cuando hagamos un cambio y guardemos se vea reflejado inmediatamente en el navegador
+
+# Uso properties y generacion de pojo 1
+- Agregamos valores al archivo application.properties
+- Creamos un archivo de configuracion GeneralConfiguration, configuramos la dependencia y le pasamos a la implementación
+2 valores de properties. 
+- Creamos una dependencia(MybeanWithProperties)
+- Creamos la implementacion de la dependencia(MybeanWithPropertiesImplement).
+- Inyectamos la dependencia dentro de FundamentosApplication
+
+
