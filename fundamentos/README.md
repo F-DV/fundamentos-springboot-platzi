@@ -110,3 +110,9 @@ para darle una configuracion inicial y poderlo inyectar.
 - Relacionamos las tabals con @ManytoOne y @OneToMany 
 - Le damos nombre a las tablas
 - NOTA: No olvidar los constructores, getter and setters y toString
+
+# Configuracion de datasoure con properties y clases
+- Primero se agrega la dependencia para trabajar con la base de datos h2
+- Se realiza configuracion del datasource con el archivo application.properties
+- Se realiza configuracion como un @Bean en la clase GeneralConfiguration
+- Nota:Podemos configurarlo de cualquiera de las dos formas.
