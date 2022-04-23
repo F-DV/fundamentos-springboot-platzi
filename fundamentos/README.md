@@ -29,4 +29,12 @@ inicializan con el contenedeor de spring. Implementacion del principiodeinversio
 - @Controller: Representa lo que biene de la interface Grafica, respuestas http, etc.
 - @Service: Logica de negocio adicional o validaciones adicionales.
 - @Repository: Persistencia de datos, obtención de datos.
-- 
+
+## Commits
+
+# Inyeccion de dependencia Component
+- Creacion de Interface ComponentDependency
+- Creacion de clase ComponentImplement
+- Creacion de clase ComponentImplement2
+- En la clase principal FundamentosApplication inyectamos la dependencia y en el constructor indicamos con qualifer
+cual implementacion utilizara, Tambien podmos usar en el componente la anotacion @primary para indicar cual se utilizará
