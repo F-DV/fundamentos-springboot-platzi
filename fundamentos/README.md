@@ -35,6 +35,11 @@ inicializan con el contenedeor de spring. Implementacion del principiodeinversio
 - Podemos saber por donde esta pasando nuestro codigo
 - Ejemplo de logs: ERROR,INFO,DEBUG.
 
+# ¿Que es JPA (Java Persistence API)?
+- Es el estandar de la industria para modelar Objetos en java como base de datos
+- Sirve para acceder, conservar y administrar los datos de una base de datos Realacional
+- Nos permite modelar las tablas en Clases Java.
+
 --------
 
 ## Commits
@@ -98,3 +103,10 @@ para darle una configuracion inicial y poderlo inyectar.
 - Podemos utilizarlo en los try/catch
 - Info es parecido a un system.out.print, para saber ha que metodos ingresa el codigo.
 - Hacemos una implementación de Log en la clase MyBeanWithDependencyImplement.
+
+# Modelado de Entidades con JPA
+- Inicialmente se agrega la dependencia de JPA en pom.xml
+- Creamos 2 clases para representar entidades Post,User
+- Relacionamos las tabals con @ManytoOne y @OneToMany 
+- Le damos nombre a las tablas
+- NOTA: No olvidar los constructores, getter and setters y toString
