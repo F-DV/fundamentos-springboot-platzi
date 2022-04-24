@@ -47,7 +47,13 @@ inicializan con el contenedeor de spring. Implementacion del principiodeinversio
 # ¿Que es JPQL?
 - Es el lenguaje definido por JPA para trabajar con base de datos
 - Es un parecido a SQL con la direfencia que SQL trabaja con tablas y JPQL trabaja con Objetos y propiedades
-- Solo nos permite realizar: SELECT,UPDATES Y DELETE no podemos hacer insert con JPQL
+- Solo nos permite realizar: SELECT,UPDATES Y DELETE no podemos hacer insert con JPQL.
+
+# ¿Que son los Query Methods?
+- Es otra alternativa a las anotaciones query de JPQL.
+- Se hacen por Clases o interfaces Java.
+- No utilizamos las annotaciones de Query si no que hacemos uso de metodos directamente.
+
 --------
 
 ## Commits
@@ -149,3 +155,8 @@ de forma descendente con respecto a su id
   - Despues en GeneralConfiguration, con la anotacion @propertySource lo referenciamos.
   - y cremoa variables para utilar estos valores
   - NOTA: Cuando se crean variables para manejar base de datos es aconcejable manejar variables de entorno.
+
+# Obtencion de informacion con QueryMethods
+- No utilizamos la anotacion @Query, si no que hacemos uso directamente al metodo.
+- Creamos dos los metodos en UserRepository 1 para buscar una lista de usuarios el otro para 1 solo usuario.
+- Creamos las implementaciones en FundamentosApplication

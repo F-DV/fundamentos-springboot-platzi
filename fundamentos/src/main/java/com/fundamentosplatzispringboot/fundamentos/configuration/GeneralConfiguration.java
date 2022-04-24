@@ -13,7 +13,7 @@ import org.springframework.context.annotation.PropertySource;
 import javax.sql.DataSource;
 
 @EnableConfigurationProperties(UserPojo.class) //Referenciamos la clase UserPojo, ya puede ser inyectada
-@PropertySource("classpath:connection.properties")
+@PropertySource("classpath:conecction.properties")
 @Configuration
 public class GeneralConfiguration {
 
