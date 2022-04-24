@@ -221,3 +221,12 @@ uso del metodo save() de UserService que a su ves hace uso del metodo save de Us
 - @ParamPath coje el parametro del path en este caso el id ya que queremos elimianr al usuario por id
 - Creamos elmetodo upDate el cual recibe el cuerpo nuevo y el id del usuario que se vaa cambiar
 - Agregamos la anotacion @ @JsonBackReference al Post para solucionar error a la hora de hacer el Post
+
+# Paginacion con SpringBoot
+- Cambiamos la herencia de UserRepository por PagingAndSortingRepository el cual contiene todos los metodos de pageable
+- Creamos metodo en userRepository findAll(),
+- Luego vamos a UserRestController para consumir todo lo relacionado con la pagicion
+- Este metodo recibe 2 @RequestParam 
+- Inyetamos userRepository en UserRestController para utilizar el metodo getAll() y ya estamos listo para paginar
+enviando como parametros , la pagina y la candidad de datos que queremos que muestre esa pagina
+- Buscamos en la ruta por ejemplo: " /pageable?page=1&size=4 " dandole la pagina y el numero de registros
