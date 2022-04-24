@@ -209,4 +209,15 @@ a los datos en formato Json por protocolo Http
 - Agregamos la anotacion @RequestMapping en la clase en la cual indicamos la direccion para acceder a la clase
 - Al metodo que retorna los usuarios le damos la direccion especifica para acceder a este metodo con la anotacion @GetMapping
 - y ya tener acceso a los usuarios por protocolo http
+
+# Metodos Create, Update y Delete
+- Creamos las tres clases para los casos de uso
+- Inyectamos el caso de uso de Createuser en UserRestController
+- Creamos el metodo newUser para crear al usuario. La anotacion @PostMapping nos permite crear un usuario
+- @RequestBody toma como parametro el cuerpo que se le envie en formato Json-
+- Retornamos ResponseEntity el cual creara al usuario en un metodo dentro del caso de uso CreateUser que a su vez hace
+uso del metodo save() de UserService que a su ves hace uso del metodo save de UserReposotory.
+- Creamos El metodo Delete emulando el mismo flujo del Create
+- @ParamPath coje el parametro del path en este caso el id ya que queremos elimianr al usuario por id
+- Creamos elmetodo upDate el cual recibe el cuerpo nuevo y el id del usuario que se vaa cambiar
 - 
