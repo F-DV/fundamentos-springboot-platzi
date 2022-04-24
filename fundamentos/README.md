@@ -169,4 +169,12 @@ de forma descendente con respecto a su id
 - en este caso ya sea que le enviemos el nombre o el email.
 - Funcion Between : Buscar a los usuarios que se encuentren en un rango de fechas
 - Funcion OrderBy : Busca los usuarios que coincidan con el name que le enviamos y los ordena por su id
-- Funcion Containing : Busca los usuarios que contengan la palabra que le indiquemos
+- Funcion Containing : Busca los usuarios que contengan la palabra que le indiquemos.
+
+# Uso de JPQL con named Parameters
+- Creamos Clase DTO para el usuario
+- NOTA = DTO: Es un POJO que se usa para enviar los datos del servidor al cliente
+- En userRepository Realizamos el Query named Parameters construyendo nuestro DTO con los parametros del usuario
+- Mostramos en consola la lista de usuarios encontrados que tengan los parametros enviados, esta lista ya es de tipo UserDto
+- En caso de que no encuentre ninguno , lanzamos una exception, la lista es optional.
+- Nota : No olvidar los espacios entre " y los querys por ejemplo " FROM".

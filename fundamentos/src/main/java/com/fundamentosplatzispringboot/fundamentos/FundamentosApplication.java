@@ -92,6 +92,9 @@ public class FundamentosApplication implements CommandLineRunner {
 		userRepository.findByNameContainingOrderByIdDesc("user")
 				.stream()
 				.forEach(user -> LOGGER.info("Usuarios buscados con containing y ordenados con orderBY:"+ user));
+
+		LOGGER.info(userRepository.getAllBybirthdayAndEmail(LocalDate.of(2021,04,3),"carlos@gmail")
+				.orElseThrow(()-> new RuntimeException("No se encontro el usuario con estos datos")));
 	}
 	private void
 	saveUsersInDatabase(){
