@@ -43,6 +43,11 @@ inicializan con el contenedeor de spring. Implementacion del principiodeinversio
 # ¿Que es JpaRepository?
 - Es una interfaz que nos ofrece metodos para interactuar con las bases de datos
 - recibe 2 parametros, 1)La entidad que queremos mappear 2)El tipo delvid
+
+# ¿Que es JPQL?
+- Es el lenguaje definido por JPA para trabajar con base de datos
+- Es un parecido a SQL con la direfencia que SQL trabaja con tablas y JPQL trabaja con Objetos y propiedades
+- Solo nos permite realizar: SELECT,UPDATES Y DELETE no podemos hacer insert con JPQL
 --------
 
 ## Commits
@@ -127,3 +132,14 @@ para darle una configuracion inicial y poderlo inyectar.
 - Los guardamos en una lista y luego aplicamos un stream para recorrelos y aplicarles save de JpaRepository
 - En application.properties activamos spring.jpa.show-sql para ver en la consola como hibbernate agrega cada usuario en la base de datos H2
 
+# JPQL en annotation query
+  - 1PARTE
+  - Nos dirigimos a User Repository y creamos un query para buscar un usuario por email.
+  - Luego en FundamosApplication creamos un metodo en el cual hacemos uso del metodo para buscar por email
+  - le pasamos un email y lanzamos una exception en caso de que no encuentre. Todo lo imprimimos con un LOGGER.info para visualizar en consola
+    - 2PARTE
+  - Creamos metodo en la dependencia UserRepository llamado findBySort para buscar y ordenar los usuarios,
+   que empiezen por el parametro que se le pasa.
+  - Cambiamos los nombre de algunos usuarios para poder visualizar el trabajo del metodo findAndSort.
+  - Hacemos uso del metodo en FundamentosApplication buscardo a los usuaruis que empiezan por user y ordenandolos
+de forma descendente con respecto a su id

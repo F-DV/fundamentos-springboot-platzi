@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.Sort;
 
 import java.lang.reflect.Array;
 import java.time.LocalDate;
@@ -54,6 +55,17 @@ public class FundamentosApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		//ejemplosAnteriores();
 		saveUsersInDatabase();
+		getInformationJpqlFromUser();
+	}
+
+	private void getInformationJpqlFromUser(){
+		LOGGER.info("El usuario Encontrado es: " + userRepository.findByUserEmail("felipe@gmail")
+				.orElseThrow(()-> new RuntimeException("No se encontro el usuario con ese email")));
+
+		userRepository.findAndSort("user",Sort.by("id").descending())
+				.stream()
+				.forEach(user -> LOGGER.info("Usuario con metodo sort: " + user));
+
 	}
 	private void
 	saveUsersInDatabase(){
@@ -61,10 +73,10 @@ public class FundamentosApplication implements CommandLineRunner {
 		User user2 = new User("Andres","andres@gmail", LocalDate.of(2021,05,4));
 		User user3 = new User("Felipe","felipe@gmail", LocalDate.of(2021,06,5));
 		User user4 = new User("Fernando","fernando@gmail", LocalDate.of(2021,07,6));
-		User user5 = new User("john","john@gmail", LocalDate.of(2021,04,7));
-		User user6 = new User("Cesar","cesar@gmail", LocalDate.of(2021,04,8));
-		User user7 = new User("Daniel","daniel@gmail", LocalDate.of(2021,10,9));
-		User user8 = new User("Andredy","andredy@gmail", LocalDate.of(2021,11,10));
+		User user5 = new User("user1","john@gmail", LocalDate.of(2021,04,7));
+		User user6 = new User("user2","cesar@gmail", LocalDate.of(2021,04,8));
+		User user7 = new User("user3","daniel@gmail", LocalDate.of(2021,10,9));
+		User user8 = new User("user4","andredy@gmail", LocalDate.of(2021,11,10));
 		User user9 = new User("Jose","jose@gmail", LocalDate.of(2021,02,11));
 		User user10 = new User("Raul","raul@gamail", LocalDate.of(2021,01,12));
 
