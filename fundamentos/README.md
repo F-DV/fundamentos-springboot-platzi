@@ -54,6 +54,12 @@ inicializan con el contenedeor de spring. Implementacion del principiodeinversio
 - Se hacen por Clases o interfaces Java.
 - No utilizamos las annotaciones de Query si no que hacemos uso de metodos directamente.
 
+# Tansactional
+- nos permite hacer un rolllback de as transacciones que estemos realizando.
+- Si estamos agregando una lista de usuarios y uno de ellos no puede ser ingresado o tiene un problema
+- Los usuarios ingresados anteriormente ya no se guardaran
+- Al aplicar la anotación @transactional podemos presenciar al conjunto de operaciones ejecutándose de manera total, integral y atómica. Se sigue el acrónimo ACID (Atomicity, Consistency, Isolation and Durability: Atomicidad, Consistencia, Aislamiento y Durabilidad, en español).
+
 --------
 
 ## Commits
@@ -178,3 +184,13 @@ de forma descendente con respecto a su id
 - Mostramos en consola la lista de usuarios encontrados que tengan los parametros enviados, esta lista ya es de tipo UserDto
 - En caso de que no encuentre ninguno , lanzamos una exception, la lista es optional.
 - Nota : No olvidar los espacios entre " y los querys por ejemplo " FROM".
+
+# Uso de anotacion transational
+- Creamos el userService
+- Le creamos un metodo para guardar los usuarios con la anotacion @Transactional
+- Creamos metodo para retornar todos los usuarios guardados en casa de que no tengan inconveniente.
+- hacemos uso de la clase userRepository en FundamentosApplication
+- Agregamos una condicion a la columna del email que sea unico para poder generar un error y mostras los beneficios de transactional
+- Creamos un try/catch para no detener la ejecucion del programa cuando se genere el error
+- Le asignamos el mismo email al test1 y al test3
+- En consola no agregara ningun usuario testya que la lista tiene un error

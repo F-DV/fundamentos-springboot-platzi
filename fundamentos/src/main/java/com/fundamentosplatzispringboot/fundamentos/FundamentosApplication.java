@@ -7,6 +7,7 @@ import com.fundamentosplatzispringboot.fundamentos.bean.MyBeanWithProperties;
 import com.fundamentosplatzispringboot.fundamentos.component.ComponentDependency;
 import com.fundamentosplatzispringboot.fundamentos.entity.User;
 import com.fundamentosplatzispringboot.fundamentos.repository.UserRepository;
+import com.fundamentosplatzispringboot.fundamentos.service.UserService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,7 @@ public class FundamentosApplication implements CommandLineRunner {
 	private MyBeanWithProperties  myBeanWithProperties;
 	private UserPojo userPojo;
 	private UserRepository userRepository;
+	private UserService userService;
 
 	@Autowired
 	public FundamentosApplication(
@@ -39,13 +41,15 @@ public class FundamentosApplication implements CommandLineRunner {
 			, MyBeanWithDependency myBeanWithDependency
 			, MyBeanWithProperties myBeanWithProperties
 			, UserPojo userPojo
-	  		,UserRepository userRepository){
+	  		,UserRepository userRepository
+			,UserService userService){
 		this.componentDependency = componentDependency;
 		this.myBean = myBean;
 		this.myBeanWithDependency = myBeanWithDependency;
 		this.myBeanWithProperties = myBeanWithProperties;
 		this.userPojo = userPojo;
 		this.userRepository = userRepository;
+		this.userService = userService;
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(FundamentosApplication.class, args);
@@ -56,6 +60,7 @@ public class FundamentosApplication implements CommandLineRunner {
 		//ejemplosAnteriores();
 		saveUsersInDatabase();
 		getInformationJpqlFromUser();
+		saveWithErrorTransactional();
 	}
 
 	private void getInformationJpqlFromUser(){
@@ -95,6 +100,25 @@ public class FundamentosApplication implements CommandLineRunner {
 
 		LOGGER.info(userRepository.getAllBybirthdayAndEmail(LocalDate.of(2021,04,3),"carlos@gmail")
 				.orElseThrow(()-> new RuntimeException("No se encontro el usuario con estos datos")));
+	}
+
+	public void saveWithErrorTransactional(){
+		User test1 = new User("TestTransactional1", "TestTransactional1@domain.com", LocalDate.now());
+		User test2 = new User("TestTransactional2", "TestTransactional2@domain.com", LocalDate.now());
+		User test3 = new User("TestTransactional3", "TestTransactional1@domain.com", LocalDate.now());
+		User test4 = new User("TestTransactional4", "TestTransactional4@domain.com", LocalDate.now());
+
+		List<User> list = Arrays.asList(test1,test2,test3,test4);
+
+		try{
+			userService.saveTransactional(list);
+
+		} catch (Exception e){
+			LOGGER.error("Error al guardar con Transactional" + e);
+		}
+		userService.getAllUsers()
+				.stream()
+				.forEach(user -> LOGGER.info("Usuario retornado dentro del metodo transactional: : " + user));
 	}
 	private void
 	saveUsersInDatabase(){
