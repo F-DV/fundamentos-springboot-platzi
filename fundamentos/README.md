@@ -220,4 +220,4 @@ uso del metodo save() de UserService que a su ves hace uso del metodo save de Us
 - Creamos El metodo Delete emulando el mismo flujo del Create
 - @ParamPath coje el parametro del path en este caso el id ya que queremos elimianr al usuario por id
 - Creamos elmetodo upDate el cual recibe el cuerpo nuevo y el id del usuario que se vaa cambiar
-- 
+- Agregamos la anotacion @ @JsonBackReference al Post para solucionar error a la hora de hacer el Post
