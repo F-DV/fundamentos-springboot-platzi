@@ -160,3 +160,13 @@ de forma descendente con respecto a su id
 - No utilizamos la anotacion @Query, si no que hacemos uso directamente al metodo.
 - Creamos dos los metodos en UserRepository 1 para buscar una lista de usuarios el otro para 1 solo usuario.
 - Creamos las implementaciones en FundamentosApplication
+
+# Query Methods con Or,And,orderBy,Between,sort
+- Funcion Like :Agregamos funcion para buscar los usuarios que coincidan con la letra que le enviamos como parametro.
+- Trae un lista de usuarios, en FundamentosApplication implementamos el metodo, enviando u como parametrp
+- con %% trae los usuarios que tengan u en cualquier posicion del nombre.
+- Funcion Or : Busca al usuario basado en cualquiera de los dos parametros que le enviemos 
+- en este caso ya sea que le enviemos el nombre o el email.
+- Funcion Between : Buscar a los usuarios que se encuentren en un rango de fechas
+- Funcion OrderBy : Busca los usuarios que coincidan con el name que le enviamos y los ordena por su id
+- Funcion Containing : Busca los usuarios que contengan la palabra que le indiquemos
