@@ -143,3 +143,9 @@ para darle una configuracion inicial y poderlo inyectar.
   - Cambiamos los nombre de algunos usuarios para poder visualizar el trabajo del metodo findAndSort.
   - Hacemos uso del metodo en FundamentosApplication buscardo a los usuaruis que empiezan por user y ordenandolos
 de forma descendente con respecto a su id
+
+# Value para apuntar a properties
+  - Creamos un nuevo properties llamado conection.propertiespara crear variables a nivel de properties
+  - Despues en GeneralConfiguration, con la anotacion @propertySource lo referenciamos.
+  - y cremoa variables para utilar estos valores
+  - NOTA: Cuando se crean variables para manejar base de datos es aconcejable manejar variables de entorno.

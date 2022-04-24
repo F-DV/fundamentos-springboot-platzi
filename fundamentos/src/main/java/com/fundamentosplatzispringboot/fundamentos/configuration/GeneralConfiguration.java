@@ -8,10 +8,12 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import javax.sql.DataSource;
 
 @EnableConfigurationProperties(UserPojo.class) //Referenciamos la clase UserPojo, ya puede ser inyectada
+@PropertySource("classpath:connection.properties")
 @Configuration
 public class GeneralConfiguration {
 
@@ -23,6 +25,19 @@ public class GeneralConfiguration {
 
     @Value("${value.random}")
     private String random;
+
+    @Value("${jdbc.url}")
+    private String jdbcUrl;
+
+    @Value("${driver}")
+    private String driver;
+
+    @Value("${username}")
+    private String username;
+
+    @Value("${password}")
+    private String password;
+
 
     @Bean
     public MyBeanWithProperties function(){
