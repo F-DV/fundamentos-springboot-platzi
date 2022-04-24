@@ -40,6 +40,9 @@ inicializan con el contenedeor de spring. Implementacion del principiodeinversio
 - Sirve para acceder, conservar y administrar los datos de una base de datos Realacional
 - Nos permite modelar las tablas en Clases Java.
 
+# ¿Que es JpaRepository?
+- Es una interfaz que nos ofrece metodos para interactuar con las bases de datos
+- recibe 2 parametros, 1)La entidad que queremos mappear 2)El tipo delvid
 --------
 
 ## Commits
@@ -116,3 +119,11 @@ para darle una configuracion inicial y poderlo inyectar.
 - Se realiza configuracion del datasource con el archivo application.properties
 - Se realiza configuracion como un @Bean en la clase GeneralConfiguration
 - Nota:Podemos configurarlo de cualquiera de las dos formas.
+
+# Registro de Base de datos con JpaRepository
+- Creamos la interface(dependencia) UserRepository y PostRepository extendemos de JpaRepository para usar los metodos del CRUD
+- Creamos en FundamentosApplication un metodo y dentro creamos 10 usuarios
+- Inyectamos la dependencia UserRepository en FundamentosApplication
+- Los guardamos en una lista y luego aplicamos un stream para recorrelos y aplicarles save de JpaRepository
+- En application.properties activamos spring.jpa.show-sql para ver en la consola como hibbernate agrega cada usuario en la base de datos H2
+
