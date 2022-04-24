@@ -194,3 +194,19 @@ de forma descendente con respecto a su id
 - Creamos un try/catch para no detener la ejecucion del programa cuando se genere el error
 - Le asignamos el mismo email al test1 y al test3
 - En consola no agregara ningun usuario testya que la lista tiene un error
+
+----------
+## REST con springBoot
+# CRUD bajo arquitectura rest
+- Creamos package para hacer los casos de uso
+- Creamos un caso de uso para obtener los datos de los usuarios
+- Creamos interfaz GetUser para retribuir la lista de los usuarios
+- Creamos la implementacion de ese caso de uso (GetUserImplement) para tener acceso al metodo getAllusers()
+- Creamos una clase de Configuration para crear un @Bean en el cual configuramos la dependencia del caso de uso
+- Creamos la clase UserRestController y la anotamos con @RestController esta anotacion nos permite tener acceso
+a los datos en formato Json por protocolo Http
+- Inyectamos la dependencia del caso de uso y creamos un metodo para retornar por http todos los usuarios
+- Agregamos la anotacion @RequestMapping en la clase en la cual indicamos la direccion para acceder a la clase
+- Al metodo que retorna los usuarios le damos la direccion especifica para acceder a este metodo con la anotacion @GetMapping
+- y ya tener acceso a los usuarios por protocolo http
+- 
